@@ -1,0 +1,191 @@
+﻿@model mvcMobileStore.Models.SanPham
+
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="border:2px outset black; height:2050px; width: 950px; margin-left: 180px; font-family: Arial ">
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mã nhà cung cấp :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.MANCC)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mã nhà phân phối :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.MaNPP)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tên sản phẩm :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.TENSP)
+        </dd>
+
+        <dt style="margin-left: 20px">
+            @Html.DisplayNameFor(model => model.GIABAN)
+        </dt>
+
+        <dd style="margin-left: 20px"> 
+            @Html.DisplayFor(model => model.GIABAN)
+        </dd>
+
+        <dt style="margin-left: 20px">
+            @Html.DisplayNameFor(model => model.MaDong)
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.MaDong)
+        </dd>
+
+        <dd style="margin-left: 20px">
+            <img src="@Url.Content("~/Hinhsanpham/" + Model.AnhSP)" width="50%"/>
+
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Công nghệ màn hình :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.CNManHinh)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Độ phân giải :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.DoPhanGiai)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Màn hình cảm ứng :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.ManHinhRong)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mặt kính cảm ứng :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.MatKinhCamUng)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Camera sau :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.CameraS)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Quay phim :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.QuayPhim)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Đèn Flash :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.DenFlash)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Chụp ảnh :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.ChupAnhNangCao)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Camera trước :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.CameraT)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Hệ điều hành :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.HeDieuHanh)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Chipset :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.Chipset)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Bộ nhớ trong :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.BoNhoTrong)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mạng di động :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.MangDiDong)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Wifi :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.Wifi)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            GPS :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.GPS)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Blutooth :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.Blutooth)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Cổng kết nối :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.Congketnoi_sac)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Thiết kế :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.ThietKe)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Kích thước :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.KichThuoc)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Trọng lượng :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.TrongLuong)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Dung lượng pin :
+        </dt>
+        <dd style="margin-left: 40px">
+            @Html.DisplayFor(model => model.DungLuongPin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "SuaSP", new { id = Model.MASP }) |
+    @Html.ActionLink("TRỞ VỀ", "sanpham")
+</p>

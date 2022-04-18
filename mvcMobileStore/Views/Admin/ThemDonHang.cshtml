@@ -1,0 +1,60 @@
+﻿@model mvcMobileStore.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Thêm đơn hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">Thêm đơn hàng</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="font-family: Arial">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Ngày đặt:
+            </dd>
+            <div class="col-md-10">
+                <input type="date" name="Ngaydat" />
+                @Html.ValidationMessageFor(model => model.Ngaydat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Ngày giao:
+            </dd>
+            <div class="col-md-10">
+                
+                <input type="date" name="NgayGiao" />
+                @Html.ValidationMessageFor(model => model.Ngaygiao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Mã khách hàng:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm đơn hàng" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="font-family: Arial">
+    @Html.ActionLink("Quay trở về", "DonHang")
+</div>

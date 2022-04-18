@@ -1,0 +1,32 @@
+﻿@model IEnumerable<mvcMobileStore.Models.SanPham>
+@{
+    ViewBag.Title = "SPTheoDong";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="row">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details","MobileStore", new { id = sanpham.MASP})">
+                <img alt="@sanpham.TENSP" src="~/Hinhsanpham/@sanpham.AnhSP" width="400" />
+                <div>
+                    <br />
+                    <h3 style="text-align: center"> @sanpham.TENSP </h3>
+                    <p></p>
+                </div>
+                <div class="ratings">
+                    <p class="pull-right">10 review</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+

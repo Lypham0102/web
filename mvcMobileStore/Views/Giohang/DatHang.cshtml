@@ -1,0 +1,88 @@
+﻿@using mvcMobileStore.Models
+@using mvcMobileStore.Orther
+@model List<GioHang>
+@{
+    ViewBag.Title = "Đặt hàng";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h2 style="text-align:center">THÔNG TIN HÀNG HÓA</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td style="font-family: Arial"> Mã sản phẩm </td>
+        <td style="font-family: Arial"> Tên sản phẩm </td>
+        <td style="font-family: Arial"> Ảnh bìa </td>
+        <td style="font-family: Arial"> Số lượng </td>
+        <td style="font-family: Arial"> Đơn giá </td>
+        <td style="font-family: Arial"> Thành tiền </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold; font-family: Arial">
+            <td> @item.iMaSP </td>
+            <td> @item.sTenSP</td>
+            <td><img src="~/Hinhsanpham/@item.sAnhbia" width="35%"></td>
+            @using (Html.BeginForm("CapnhatGiohang", "Giohang", new { @iMaSP = item.iMaSP }))
+            {
+                <td>
+                    @item.iSoluong
+                </td>
+                <td>@String.Format("{0:0,0}", item.dDongia) </td>
+                <td>@String.Format("{0:0,0}", item.dThanhtien) </td>
+            }
+        </tr>
+        <tr style="font-weight: bold; text-align:right; color:red; font-family: Arial">
+            <td colspan="3"> Số lượng sách: @ViewBag.Tongsoluong </td>
+            <td colspan="3"> Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+        </tr>
+        <tr style="font-weight: bold; color:blue; text-align:right; font-family: Arial">
+            <td colspan="6">
+                @Html.ActionLink("TRỞ VỀ GIỎ HÀNG", "Giohang", "GioHang")
+            </td>
+        </tr>
+    }
+</table>
+
+<h2 style="text-align:center; font-family: Arial; font-weight: bold">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    KhachHang kh = (KhachHang)Session["Taikhoan"];
+}
+<table align="center" style="font-family: Arial">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Họ tên khách hàng:</td>
+            <td style="font-weight:bold"> @kh.TENKH </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địa chỉ:</td>
+            <td style="font-weight:bold"> @kh.DiaChi </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Điện thoại:</td>
+            <td style="font-weight:bold"> @kh.SDT </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày đặt:</td>
+            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày giao hàng:</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="Submit" value="ĐỒNG Ý ĐẶT HÀNG" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <a href="@Url.Action("Payment", "ThanhToanMoMo")"><span class="btn btn-danger">Thanh toán</span></a>
+            </td>
+        </tr>
+    }
+</table>

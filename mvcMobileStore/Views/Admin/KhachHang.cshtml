@@ -1,0 +1,60 @@
+﻿@using PagedList.Mvc
+@using mvcMobileStore.Models;
+@model PagedList.PagedList<mvcMobileStore.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family:Arial">Khách hàng</h2>
+
+<p style="font-family: Arial">
+    @Html.ActionLink("Thêm khách hàng mới", "ThemKH")
+</p>
+<table class="table" style="border:2px outset black; height:250px; width: 1100px; margin-left: 100px; font-family: Arial ">
+    <tr>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tên khách hàng
+        </th>
+
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tài khoản
+        </th>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày sinh
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="font-family: Arial">
+            <td>
+                @Html.DisplayFor(modelItem => item.TENKH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taikhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaysinh)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "SuaKH", new { id = item.MAKH }) |
+                @Html.ActionLink("Chi tiết", "ChiTietKH", new { id = item.MAKH }) |
+                @Html.ActionLink("Xóa", "XoaKH", new { id = item.MAKH })
+            </td>
+        </tr>
+    }
+
+</table>
+@* Tao liên kết các trang *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("KhachHang", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

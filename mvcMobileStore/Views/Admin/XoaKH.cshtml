@@ -1,0 +1,80 @@
+﻿@model mvcMobileStore.Models.KhachHang
+
+@{
+    ViewBag.Title = "Xóa khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN YÊU CẦU XÓA THÔNG TIN KHÁCH HÀNG</h2>
+
+<h3>Bạn quyết định xóa thông tin khách hàng này?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tên khách hàng:
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.TENKH)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tài khoản:
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Taikhoan)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mật khẩu:
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Matkhau)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Số điện thoại:
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            CCCD/CMND: 
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Địa chỉ:
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày sinh: 
+        </dd>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "KhachHang")
+        </div>
+    }
+</div>

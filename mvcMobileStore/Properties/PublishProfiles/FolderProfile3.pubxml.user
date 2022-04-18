@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\ADMIN\Downloads\web</_PublishTargetUrl>
+    <History>False|2022-04-06T02:45:44.5444507Z;False|2022-04-06T09:30:12.9470816+07:00;False|2022-04-06T09:10:40.2578653+07:00;False|2022-04-06T09:07:21.8316700+07:00;False|2022-04-06T08:58:55.2140809+07:00;False|2022-04-06T08:57:24.8626877+07:00;False|2022-04-06T08:55:27.7893312+07:00;False|2022-04-06T08:49:57.3708927+07:00;False|2022-04-06T08:47:31.4180824+07:00;</History>
+  </PropertyGroup>
+</Project>

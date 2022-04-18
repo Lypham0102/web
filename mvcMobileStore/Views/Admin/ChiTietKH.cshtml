@@ -1,0 +1,72 @@
+﻿@model mvcMobileStore.Models.KhachHang
+
+@{
+    ViewBag.Title = "Chi tiết khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div>
+    <h4 style="font-family: Arial">Khách hàng</h4>
+    <hr />
+    <dl class="dl-horizontal" style="border:2px outset black; height:500px; width: 950px; margin-left: 180px; font-family: Arial ">
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tên khách hàng :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.TENKH)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tài khoản :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Taikhoan)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mật khẩu :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Matkhau)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Số điện thoại :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            CCCD/CMND :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Địa chỉ :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày sinh :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+
+    </dl>
+</div>
+<p style="font-family: Arial">
+    @Html.ActionLink("Điều chỉnh", "SuaKH", new { id = Model.MAKH }) |
+    @Html.ActionLink("Trở về", "KhachHang")
+</p>

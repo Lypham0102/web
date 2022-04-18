@@ -1,0 +1,72 @@
+﻿@model mvcMobileStore.Models.SanPham
+
+@{
+    ViewBag.Title = "Sửa sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">Điều chỉnh thông tin sản phẩm</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.MASP)
+
+
+
+    <div class="form-group" style="padding: 20px; margin-bottom: 20px; font-family: Arial">
+        @Html.LabelFor(model => model.MANCC, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MANCC")
+        </div>
+    </div>
+
+    <div class="form-group" style="padding: 20px; margin-bottom: 20px; font-family: Arial">
+        @Html.LabelFor(model => model.MaNPP, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaNPP")
+        </div>
+    </div>
+
+
+    <div class="form-group" style="font-family: Arial">
+        @Html.LabelFor(model => model.TENSP, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TENSP, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TENSP, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="font-family: Arial">
+        @Html.LabelFor(model => model.GIABAN, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.GIABAN, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.GIABAN, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group" style="font-family: Arial">
+        @Html.LabelFor(model => model.MaDong, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaDong, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaDong, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group" style="font-family: Arial">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

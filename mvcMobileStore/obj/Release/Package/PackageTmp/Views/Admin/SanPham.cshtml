@@ -1,0 +1,69 @@
+﻿
+@using PagedList.Mvc
+@using PagedList
+@using mvcMobileStore.Models;
+@model PagedList.PagedList<mvcMobileStore.Models.SanPham>
+
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "Themdienthoaimoi")
+</p>
+<table class="table" border="1" style="font-family: Arial">
+
+    <tr>
+        <th style="width:200px"> Tên sách </th>
+        <th style="width:100px"> Giá bán </th>
+        <th style="width:120px"> Ảnh bìa </th>
+ 
+        <th style="width:120px"> Dòng </th>
+        <th style="width:120px"> Mã NCC</th>
+
+        <th style="width:120px"> Mã NPP </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr style="font-family: Arial">
+    <td>
+        @Html.DisplayFor(modelItem => item.TENSP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GIABAN)
+    </td>
+    <td>
+        <img src="@Url.Content("~/Hinhsanpham/" + item.AnhSP)" width="100%" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaDong)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MANCC)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaNPP)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "SuaSP", new { id = item.MASP })|
+        @Html.ActionLink("Chi tiết", "Chitietsanpham", new { id = item.MASP })|
+        @Html.ActionLink("Xóa", "Xoasanpham", new { id = item.MASP })
+    </td>
+</tr>
+    }
+
+</table>
+@* Tao liên kết các trang *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("SanPham", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

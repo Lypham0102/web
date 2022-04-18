@@ -1,0 +1,52 @@
+﻿@model mvcMobileStore.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "XoaDH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">Xóa đơn hàng</h2>
+
+<h3 style="font-family: Arial">Bạn thực sự muốn xóa đơn hàng này?</h3>
+<div style="font-family: Arial">
+    <hr />
+    <dl class="dl-horizontal" style="border:2px outset black; height:2050px; width: 950px; margin-left: 180px; font-family: Arial ">
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mã đơn hàng :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.MaDonHang)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày đặt :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Ngaydat)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày giao :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.Ngaygiao)
+        </dd>
+        <dt style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mã khách hàng :
+        </dt>
+
+        <dd style="margin-left: 20px">
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về", "DonHang")
+        </div>
+    }
+</div>

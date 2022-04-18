@@ -1,0 +1,98 @@
+﻿@model mvcMobileStore.Models.KhachHang
+
+@{
+    ViewBag.Title = "Thêm khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family: Arial">Thêm khách hàng</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal" style="font-family: Arial">
+        <h4 style="font-family: Arial">Khách hàng</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Tên khách hàng: 
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TENKH, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TENKH, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Tài khoản:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Taikhoan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Taikhoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Mật khẩu:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Matkhau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Số điện thoại:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                CCCD/CMND:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CCCD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CCCD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Địa chỉ:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dd style="font-family: Arial; margin-left: 20px; margin-right: 20px;">
+                Ngày sinh:
+            </dd>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ngaysinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ngaysinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group"style="font-family: Arial">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm mới" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="font-family: Arial">
+    @Html.ActionLink("Quay trở về", "KhachHang")
+</div>

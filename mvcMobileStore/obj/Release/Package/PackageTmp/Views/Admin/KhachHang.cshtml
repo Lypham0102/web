@@ -1,0 +1,68 @@
+﻿@model IEnumerable<mvcMobileStore.Models.KhachHang>
+
+@{
+    ViewBag.Title = "Quản lý khách hàng";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-family:Arial">Khách hàng</h2>
+
+<p>
+    @Html.ActionLink("Thêm khách hàng mới", "Create")
+</p>
+<table class="table" style="border:2px outset black; height:250px; width: 1100px; margin-left: 100px; font-family: Arial ">
+    <tr>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Tài khoản
+        </th>
+        
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Mật khẩu
+        </th>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Số điện thoại
+        </th>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            CCCD/CMND
+        </th>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Địa chỉ
+        </th>
+        <th style="font-family: Arial; margin-left: 20px; margin-right: 20px; border-top: 1px solid;">
+            Ngày sinh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="font-family: Arial">
+        <td>
+            @Html.DisplayFor(modelItem => item.TENKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Taikhoan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Matkhau)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaysinh)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MAKH }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MAKH }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MAKH })
+        </td>
+    </tr>
+}
+
+</table>

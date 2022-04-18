@@ -1,0 +1,22 @@
+﻿@model IEnumerable<mvcMobileStore.Models.Dong>
+<p class="lead" style="font-size: 25px; color: seagreen; font-weight: bold">CÁC DÒNG MÁY</p>
+<div style="border: 1px solid green; width: 700px; height: 50px">
+    <ul class="menu">
+        <li>
+            @foreach (var item in Model)
+            {
+                <a href="@Url.Action("SPTheoDong","MobileStore",new { id = item.MaDong})">
+                    |  @item.TenDong      
+
+                </a>
+            }
+        </li>
+    </ul>
+    
+</div>
+<style>
+    .menu li {
+        display: inline;
+        font-size: 30px;
+    }
+</style>
